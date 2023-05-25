@@ -53,5 +53,8 @@
     "@trevorblades/eslint-config": "^7.2.1",
     "eslint": "^7.11.0",
     "eslint-plugin-jsx-a11y": "^6.4.1"
+  },
+  "overrides": {
+    "nth-check": "2.0.1"
   }
 }
