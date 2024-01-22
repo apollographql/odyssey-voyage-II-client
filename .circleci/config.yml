@@ -9,8 +9,8 @@ workflows:
       - secops/gitleaks:
           context:
             - platform-docker-ro
-            - secops-oidc
             - github-orb
+            - secops-oidc
           git-base-revision: <<#pipeline.git.base_revision>><<pipeline.git.base_revision>><</pipeline.git.base_revision >>
           git-revision: << pipeline.git.revision >>
       - secops/semgrep:
