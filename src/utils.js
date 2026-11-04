@@ -1,8 +1,7 @@
-import DatePicker from 'react-datepicker';
-import areIntervalsOverlapping from 'date-fns/areIntervalsOverlapping';
-import format from 'date-fns/format';
-import {gql, useQuery} from '@apollo/client';
-import {useState} from 'react';
+import {areIntervalsOverlapping, format} from 'date-fns';
+import {gql} from '@apollo/client';
+import {useEffect, useState} from 'react';
+import {useQuery} from '@apollo/client/react';
 
 export const GET_USER = gql`
   query GetMyProfile {
@@ -23,12 +22,15 @@ export const GET_USER = gql`
 export function useUser() {
   const [user, setUser] = useState();
 
-  const {loading, error} = useQuery(GET_USER, {
-    fetchPolicy: 'no-cache',
-    onCompleted: ({me}) => {
-      setUser({...me});
-    }
+  const {data, loading, error} = useQuery(GET_USER, {
+    fetchPolicy: 'no-cache'
   });
+
+  useEffect(() => {
+    if (data?.me) {
+      setUser({...data.me});
+    }
+  }, [data]);
 
   return {
     user,
@@ -75,8 +77,6 @@ export const getDatePickerProps = ({
   ...props
 }) => {
   return {
-    type: 'date',
-    as: DatePicker,
     dateFormat: 'MM-dd-yyyy',
     minDate: today,
     startDate,
