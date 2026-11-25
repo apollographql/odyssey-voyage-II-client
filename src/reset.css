@@ -1,0 +1,3 @@
+/* Chakra UI 3 styles live in CSS layers, so unlayered CSS always wins over them.
+   Keep the Apollo reset in the `reset` layer so it doesn't override Chakra. */
+@import '@apollo/space-kit/reset.css' layer(reset);

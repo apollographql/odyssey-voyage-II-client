@@ -12,10 +12,11 @@ The course will walk you through step by step how to turn the _backend_ from a m
 
 To get started:
 
+1. Make sure you have Node.js 22 or later installed.
 1. In a terminal window, run `npm install`.
 1. Then, run `npm start`.
 
-This will open up a new browser tab to [http://localhost:3000](http://localhost:3000)
+Then open [http://localhost:3000](http://localhost:3000) in your browser.
 
 You will need the [back-end server](https://github.com/apollographql/odyssey-voyage-II-server) running on `localhost:4000` for any queries to work.
 ## Getting Help
